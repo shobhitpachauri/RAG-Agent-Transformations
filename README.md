@@ -1,87 +1,107 @@
-# AI-powered Risk Assessment and Automation for Project Transformation
+# Project: AI-powered Risk Assessment and Automation for Project Transformation
 
-This project implements an end-to-end system for assessing project transformation risks in supply chain operations using AI and data analytics.
+## 📊 **Overview**
 
-## Project Components
+In this project, I aim to develop a comprehensive **AI-powered solution** for assessing the **risk** in project transformations, especially in supply chain operations. This involves integrating **predictive analytics**, **automated status tracking**, and **intelligent decision-making** via a chatbot powered by **Large Language Models (LLM)**.
 
-1. **Data Pipeline**
-   - Snowflake ETL pipeline for data ingestion and processing
-   - Data cleaning and transformation scripts
+The project leverages **Snowflake** for data storage, **Power BI** for data visualization, **Machine Learning (ML)** for predictive analysis, and a custom-built **AI Chatbot** to track and predict the status of ongoing projects, while identifying potential risks.
 
-2. **Analytics & Visualization**
-   - Power BI dashboards for project monitoring
-   - SQL queries for data extraction
+---
 
-3. **Machine Learning**
-   - Random Forest classifier for risk prediction
-   - Feature engineering and model evaluation
+## 🏆 **Importance**
 
-4. **AI Chatbot**
-   - LangChain and OpenAI GPT integration
-   - Interactive project status and risk assessment
+In today's fast-paced business environment, managing complex projects, particularly in large organizations like L'Oréal, requires accurate **risk assessment**, timely **status tracking**, and **budget management**. This project is designed to:
 
-## Setup Instructions
+- **Automate status updates** using AI, giving real-time insights into project progress and potential risks.
+- Use **predictive analytics** to forecast risks such as budget overruns, delays, and vendor issues, enabling proactive decision-making.
+- Help **transform operations** by integrating AI and data visualization tools, allowing seamless integration across teams and real-time tracking.
+- Provide an intelligent **AI chatbot** for personalized risk updates and support.
 
-1. **Environment Setup**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
+---
 
-2. **Configuration**
-   - Copy `.env.example` to `.env`
-   - Update the environment variables with your credentials
+## 🔑 **Key Technologies Used**
 
-3. **Database Setup**
-   - Run the Snowflake schema creation script
-   - Execute the ETL pipeline
+- **Snowflake**: Cloud-based data warehousing platform for storing and querying large project datasets.
+- **Power BI**: Data visualization tool to create interactive reports and dashboards.
+- **Machine Learning (ML)**: Scikit-learn, RandomForestClassifier to build a predictive model for risk assessment.
+- **LangChain**: Used to create the AI-powered chatbot using GPT (OpenAI) for natural language processing.
+- **Python**: The language used for data processing, ETL pipeline, and machine learning model development.
+- **ETL**: Extract, Transform, Load pipeline for preparing data for analysis and storage in Snowflake.
 
-## Project Structure
+---
 
-```
-├── data/                   # Data files and datasets
-├── src/                    # Source code
-│   ├── etl/               # ETL pipeline scripts
-│   ├── ml/                # Machine learning models
-│   ├── chatbot/           # AI chatbot implementation
-│   └── utils/             # Utility functions
-├── sql/                   # SQL queries for Snowflake
-├── notebooks/             # Jupyter notebooks for analysis
-├── tests/                 # Unit tests
-├── requirements.txt       # Python dependencies
-└── .env.example          # Environment variables template
-```
+## 🛠️ **Project Breakdown**
 
-## Dependencies
+### 1. **Data Preparation & ETL Pipeline using Snowflake**
 
-- Python 3.8+
-- Snowflake
-- Power BI
-- OpenAI API
-- LangChain
+**What I'm doing:**
 
-## Usage
+In this step, I am setting up a **Snowflake** database and creating an ETL pipeline to load and clean the project data. The dataset contains 10,000 project records, with metadata, budget usage, status, and delay reasons.
 
-1. Run the ETL pipeline:
-   ```bash
-   python src/etl/pipeline.py
-   ```
+**Why it's important:**
 
-2. Train the ML model:
-   ```bash
-   python src/ml/train_model.py
-   ```
+- Ensures that the project data is properly structured and cleaned, making it ready for analysis.
+- Snowflake's cloud-based architecture ensures scalability and performance.
 
-3. Start the chatbot:
-   ```bash
-   python src/chatbot/main.py
-   ```
+**How I’m doing it:**
 
-## Contributing
+- Create a **Snowflake table** schema based on the dataset structure.
+- Load data from a **CSV** file into Snowflake using **COPY INTO** commands.
+- Develop an **ETL pipeline** in Python to clean the data and ensure quality.
 
-Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
+### 2. **Power BI Dashboards**
 
-## License
+**What I'm doing:**
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+I will create **Power BI dashboards** that allow real-time visualization of project data, tracking **status**, **budget usage**, and **risks**.
+
+**Why it's important:**
+
+- Interactive dashboards help monitor key project metrics and make informed decisions.
+- Visualizing the project status in a **RAG** (Red, Amber, Green) format allows stakeholders to quickly understand risks and progress.
+
+**How I’m doing it:**
+
+- **Connect Snowflake** to Power BI for real-time data extraction.
+- Build visualizations such as:
+  - **Status Overview**: Distribution of project statuses (On Track, Delayed).
+  - **Risk Overview**: Projects with high risks, predicted delays, and budget issues.
+  - **Milestone Completion**: Tracking project completion vs. delays.
+
+### 3. **Predictive Model for Risk Assessment**
+
+**What I'm doing:**
+
+I am using a **machine learning model** to predict the likelihood of project delays and risks, such as vendor issues or budget overruns, based on historical data.
+
+**Why it's important:**
+
+- Predictive models help stakeholders proactively manage risks and make informed decisions about how to address potential project delays before they become critical.
+- Helps businesses to forecast issues and adjust their strategy accordingly.
+
+**How I’m doing it:**
+
+- I will train a **Random Forest Classifier** model using features like **milestone percentage**, **budget used**, **delay days**, and **vendor issues**.
+- Use **Scikit-learn** to build, train, and evaluate the model.
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Prepare dataset and split into features and labels
+X = df[['milestone_percentage', 'budget_used', 'delay_days']]  # Features
+y = df['predicted_risk']  # Labels (High, Medium, Low)
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Train the model
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+# Predict on test set
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+print(f'Accuracy: {accuracy_score(y_test, y_pred)}')
