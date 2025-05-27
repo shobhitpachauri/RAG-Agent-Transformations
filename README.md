@@ -6,7 +6,11 @@ An end-to-end solution for assessing and managing project transformation risks u
 
 This project combines the power of AI, machine learning, and data analytics to revolutionize project risk assessment and management. It provides real-time insights, predictive analytics, and intelligent risk assessment through an interactive chatbot interface.
 
+![ChatGPT Image May 27, 2025, 08_44_20 AM](https://github.com/user-attachments/assets/459afacf-6461-48c1-99b7-423abc6a4f54)
+
+
 ## 📊 Architecture
+![ChatGPT Image May 27, 2025, 09_12_32 AM](https://github.com/user-attachments/assets/f0485d05-0e4d-4a3e-9242-2536c5e5aa6f)
 
 ```mermaid
 graph TD
@@ -21,18 +25,6 @@ graph TD
     F --> I
     G --> I
 ```
-
-## 🛠️ Tech Stack
-
-```mermaid
-pie title Technology Distribution
-    "Snowflake" : 30
-    "Power BI" : 25
-    "Python" : 20
-    "LangChain" : 15
-    "OpenAI" : 10
-```
-
 ## 📈 Features
 
 ### 1. Real-time Risk Assessment
@@ -52,6 +44,7 @@ pie title Technology Distribution
 - Real-time updates
 - Custom KPI tracking
 - Milestone monitoring
+![ChatGPT Image May 27, 2025, 09_06_08 AM](https://github.com/user-attachments/assets/8a322ec6-0248-41a9-8b92-1a77ec128041)
 
 ### 4. Intelligent Chatbot
 - Natural language interface
@@ -167,6 +160,14 @@ graph TD
 - Data encryption
 - Access control
 
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 ## 🙏 Acknowledgments
 
 - OpenAI for GPT integration
@@ -175,5 +176,3 @@ graph TD
 - LangChain for AI framework
 
 ---
-
-Made with ❤️ for better project management
